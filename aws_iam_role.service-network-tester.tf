@@ -29,8 +29,9 @@ data "aws_iam_policy_document" "service-network-tester-permissions" {
 # IAM policy
 
 resource "aws_iam_policy" "service-network-tester-permissions" {
-  name   = "service-network-tester-permissions"
-  policy = data.aws_iam_policy_document.service-network-tester-permissions.json
+  provider = aws.aws-303467602807-uw1
+  name     = "service-network-tester-permissions"
+  policy   = data.aws_iam_policy_document.service-network-tester-permissions.json
 }
 
 # IAM role
