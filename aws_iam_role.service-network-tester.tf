@@ -42,7 +42,7 @@ resource "aws_iam_role" "service-network-tester" {
   assume_role_policy = data.aws_iam_policy_document.service-network-tester-assume.json
 }
 
-resource "aws_iam_role_policy_attachment" "ih-tf-cicd-control" {
+resource "aws_iam_role_policy_attachment" "service-network-tester" {
   provider   = aws.aws-303467602807-uw1
   policy_arn = aws_iam_policy.service-network-tester-permissions.arn
   role       = aws_iam_role.service-network-tester.name
