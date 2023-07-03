@@ -4,7 +4,7 @@ terraform {
     bucket         = "infrahouse-aws-control-303467602807"
     key            = "terraform.tfstate"
     region         = "us-west-1"
-    role_arn       = "arn:aws:iam::289256138624:role/ih-tf-terraform-control"
+    role_arn       = "arn:aws:iam::289256138624:role/ih-tf-aws-control-303467602807-state-manager"
     dynamodb_table = "infrahouse-terraform-state-locks"
     encrypt        = true
   }
