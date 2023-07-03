@@ -48,8 +48,9 @@ jobs:
       # Download a plan from the approved pull request
       - name: Download plan
         run: |
-          ih-plan download \
+          ih-plan \
             --aws-assume-role-arn "arn:aws:iam::289256138624:role/ih-tf-aws-control-303467602807-state-manager" \
+            download \
             plans/${{ github.event.pull_request.number }}.plan \
             tf.plan
 
@@ -69,6 +70,7 @@ jobs:
 
       - name: Remove plan
         run: |
-          ih-plan remove \
+          ih-plan 
             --aws-assume-role-arn "arn:aws:iam::289256138624:role/ih-tf-aws-control-303467602807-state-manager" \
+            remove \
             plans/${{ github.event.pull_request.number }}.plan

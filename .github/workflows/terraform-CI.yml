@@ -64,7 +64,8 @@ jobs:
       # Upload Terraform Plan
       - name: Upload Terraform Plan
         run: |
-          ih-plan upload \
+          ih-plan \
             --aws-assume-role-arn "arn:aws:iam::289256138624:role/ih-tf-aws-control-303467602807-state-manager" \
+            upload \
             --key-name=plans/${{ github.event.pull_request.number }}.plan \
             tf.plan
