@@ -29,6 +29,7 @@ data "aws_iam_policy_document" "service-network-tester-permissions" {
       "ec2:CreateTags",
       "ec2:CreateVpc",
       "ec2:DeleteInternetGateway",
+      "ec2:DeleteNatGateway",
       "ec2:DeleteRoute",
       "ec2:DeleteRouteTable",
       "ec2:DeleteSubnet",
