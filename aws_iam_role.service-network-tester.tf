@@ -1,3 +1,7 @@
+locals {
+  service_network_tester_role_name = "service-network-tester"
+}
+
 ## Data Sources
 
 data "aws_iam_policy_document" "service-network-tester-assume" {
@@ -8,6 +12,7 @@ data "aws_iam_policy_document" "service-network-tester-assume" {
       type = "AWS"
       identifiers = [
         "arn:aws:iam::990466748045:user/aleks",
+        "arn:aws:iam::303467602807:role/${local.service_network_tester_role_name}"
       ]
     }
   }
@@ -92,7 +97,7 @@ data "aws_iam_policy_document" "service-network-tester-permissions" {
 
 resource "aws_iam_policy" "service-network-tester-permissions" {
   provider = aws.aws-303467602807-uw1
-  name     = "service-network-tester-permissions"
+  name     = "${local.service_network_tester_role_name}-permissions"
   policy   = data.aws_iam_policy_document.service-network-tester-permissions.json
 }
 
@@ -100,7 +105,7 @@ resource "aws_iam_policy" "service-network-tester-permissions" {
 
 resource "aws_iam_role" "service-network-tester" {
   provider           = aws.aws-303467602807-uw1
-  name               = "service-network-tester"
+  name               = local.service_network_tester_role_name
   description        = "Role to test module terraform-aws-service-network"
   assume_role_policy = data.aws_iam_policy_document.service-network-tester-assume.json
 }
