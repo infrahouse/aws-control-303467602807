@@ -49,6 +49,7 @@ data "aws_iam_policy_document" "service-network-tester-permissions" {
       "ec2:DescribeVpcClassicLinkDnsSupport",
       "ec2:DescribeVpcs",
       "ec2:DetachInternetGateway",
+      "ec2:DisassociateAddress",
       "ec2:DisassociateRouteTable",
       "ec2:ModifySubnetAttribute",
       "ec2:ReleaseAddress",
