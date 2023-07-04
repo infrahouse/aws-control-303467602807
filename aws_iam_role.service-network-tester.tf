@@ -16,9 +16,45 @@ data "aws_iam_policy_document" "service-network-tester-assume" {
 data "aws_iam_policy_document" "service-network-tester-permissions" {
   statement {
     actions = [
+      "ec2:AllocateAddress",
+      "ec2:AssociateRouteTable",
+      "ec2:AttachInternetGateway",
+      "ec2:AuthorizeSecurityGroupEgress",
+      "ec2:AuthorizeSecurityGroupIngress",
+      "ec2:CreateInternetGateway",
+      "ec2:CreateNatGateway",
+      "ec2:CreateRoute",
+      "ec2:CreateRouteTable",
+      "ec2:CreateSubnet",
       "ec2:CreateTags",
       "ec2:CreateVpc",
-      "ec2:DeleteVpc"
+      "ec2:DeleteInternetGateway",
+      "ec2:DeleteRoute",
+      "ec2:DeleteRouteTable",
+      "ec2:DeleteSubnet",
+      "ec2:DeleteVpc",
+      "ec2:DescribeAddresses",
+      "ec2:DescribeInternetGateways",
+      "ec2:DescribeNatGateways",
+      "ec2:DescribeNetworkAcls",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DescribeRegions",
+      "ec2:DescribeRouteTables",
+      "ec2:DescribeSecurityGroupRules",
+      "ec2:DescribeSecurityGroups",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeVpcAttribute",
+      "ec2:DescribeVpcClassicLink",
+      "ec2:DescribeVpcClassicLinkDnsSupport",
+      "ec2:DescribeVpcs",
+      "ec2:DetachInternetGateway",
+      "ec2:DisassociateRouteTable",
+      "ec2:ModifySubnetAttribute",
+      "ec2:ReleaseAddress",
+      "ec2:RevokeSecurityGroupEgress",
+      "ec2:RevokeSecurityGroupIngress",
+      "sts:AssumeRole",
+      "sts:GetCallerIdentity"
     ]
     resources = ["*"]
   }
