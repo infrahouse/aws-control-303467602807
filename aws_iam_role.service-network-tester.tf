@@ -11,6 +11,30 @@ data "aws_iam_policy_document" "service-network-tester-assume" {
       ]
     }
   }
+  statement {
+    sid     = "010"
+    actions = ["sts:AssumeRoleWithWebIdentity"]
+    principals {
+      type = "Federated"
+      identifiers = [
+        module.github-connector.gh_openid_connect_provider_arn
+      ]
+    }
+    condition {
+      test     = "StringEquals"
+      variable = "token.actions.githubusercontent.com:aud"
+      values = [
+        "sts.amazonaws.com"
+      ]
+    }
+    condition {
+      test     = "StringLike"
+      variable = "token.actions.githubusercontent.com:sub"
+      values = [
+        "repo:infrahouse/terraform-aws-service-network:*"
+      ]
+    }
+  }
 }
 
 data "aws_iam_policy_document" "service-network-tester-permissions" {
