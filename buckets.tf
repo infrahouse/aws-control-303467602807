@@ -1,4 +1,7 @@
-resource "aws_s3_bucket" "infrahouse-omnibus-cache" {
-  provider = aws.aws-303467602807-uw1
-  bucket   = "infrahouse-omnibus-cache"
+module "infrahouse-omnibus-cache" {
+  source = "./modules/omnibus-cache"
+  providers = {
+    aws = aws.aws-303467602807-uw1
+  }
+  bucket_name = "infrahouse-omnibus-cache"
 }

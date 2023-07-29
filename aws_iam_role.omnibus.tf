@@ -21,7 +21,7 @@ data "aws_iam_policy_document" "omnibus-permissions" {
       "s3:DeleteObject",
     ]
     resources = [
-      "${aws_s3_bucket.infrahouse-omnibus-cache.arn}/*"
+      "${module.infrahouse-omnibus-cache.bucket_arn}/*"
     ]
   }
 }
