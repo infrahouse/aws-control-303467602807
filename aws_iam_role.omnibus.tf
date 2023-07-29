@@ -1,4 +1,4 @@
-data "aws_iam_policy_document" "omnibus" {
+data "aws_iam_policy_document" "omnibus-assume" {
   statement {
     sid     = "000"
     actions = ["sts:AssumeRole"]
@@ -12,7 +12,7 @@ data "aws_iam_policy_document" "omnibus" {
   }
 }
 
-data "aws_iam_policy_document" "omnibus" {
+data "aws_iam_policy_document" "omnibus-permissions" {
   statement {
     actions = [
       "s3:ListBucket",
@@ -33,7 +33,7 @@ data "aws_iam_policy_document" "omnibus" {
 resource "aws_iam_policy" "omnibus" {
   provider    = aws.aws-303467602807-uw1
   name_prefix = "omnibus"
-  policy      = data.aws_iam_policy_document.omnibus.json
+  policy      = data.aws_iam_policy_document.omnibus-permissions.json
 }
 
 # IAM role
@@ -42,7 +42,7 @@ resource "aws_iam_role" "omnibus" {
   provider           = aws.aws-303467602807-uw1
   name               = "omnibus"
   description        = "Role that can use Omnibus artifacts"
-  assume_role_policy = data.aws_iam_policy_document.omnibus.json
+  assume_role_policy = data.aws_iam_policy_document.omnibus-assume.json
 }
 
 resource "aws_iam_role_policy_attachment" "service-network-tester" {
