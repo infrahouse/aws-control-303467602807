@@ -45,7 +45,7 @@ resource "aws_iam_role" "omnibus" {
   assume_role_policy = data.aws_iam_policy_document.omnibus-assume.json
 }
 
-resource "aws_iam_role_policy_attachment" "service-network-tester" {
+resource "aws_iam_role_policy_attachment" "omnibus" {
   provider   = aws.aws-303467602807-uw1
   policy_arn = aws_iam_policy.omnibus.arn
   role       = aws_iam_role.omnibus.name
