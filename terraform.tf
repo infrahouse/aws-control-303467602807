@@ -1,5 +1,4 @@
 terraform {
-  #  backend "local" {}
   backend "s3" {
     bucket         = "infrahouse-aws-control-303467602807"
     key            = "terraform.tfstate"
@@ -12,7 +11,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.67"
+      version = "~> 5.11"
     }
   }
 }
