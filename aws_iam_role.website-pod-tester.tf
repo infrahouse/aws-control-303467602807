@@ -48,8 +48,13 @@ data "aws_iam_policy_document" "website-pod-tester-permissions" {
       "acm:ListTagsForCertificate",
       "acm:RequestCertificate",
       "autoscaling:CreateAutoScalingGroup",
+      "autoscaling:DeleteAutoScalingGroup",
       "autoscaling:DescribeAutoScalingGroups",
+      "autoscaling:DescribePolicies",
       "autoscaling:DescribeScalingActivities",
+      "autoscaling:PutScalingPolicy",
+      "autoscaling:SetInstanceProtection",
+      "autoscaling:UpdateAutoScalingGroup",
       "ec2:CreateLaunchTemplate",
       "ec2:CreateTags",
       "ec2:DescribeImages",
@@ -94,6 +99,7 @@ data "aws_iam_policy_document" "website-pod-tester-permissions" {
       "route53:GetChange",
       "route53:GetHostedZone",
       "route53:ListHostedZones",
+      "route53:ListHostedZonesByName",
       "route53:ListResourceRecordSets",
       "route53:ListTagsForResource"
     ]
