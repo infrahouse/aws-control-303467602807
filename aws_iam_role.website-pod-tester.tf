@@ -52,6 +52,7 @@ data "aws_iam_policy_document" "website-pod-tester-permissions" {
       "autoscaling:DescribeAutoScalingGroups",
       "autoscaling:DescribeScalingActivities",
       "ec2:CreateLaunchTemplate",
+      "ec2:CreateTags",
       "ec2:DescribeImages",
       "ec2:DescribeInstanceAttribute",
       "ec2:DescribeInstanceCreditSpecifications",
