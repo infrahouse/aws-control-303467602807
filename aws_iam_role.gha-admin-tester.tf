@@ -73,8 +73,7 @@ data "aws_iam_policy_document" "gha-admin-tester-permissions" {
 resource "aws_iam_policy" "gha-admin-tester-permissions" {
   provider = aws.aws-303467602807-uw1
   name     = "${local.gha_admin_tester_role_name}-permissions"
-  #  policy   = data.aws_iam_policy_document.gha-admin-tester-permissions.json
-  policy = data.aws_iam_policy.administrator-access.policy
+  policy   = data.aws_iam_policy_document.gha-admin-tester-permissions.json
 }
 
 # IAM role
