@@ -59,6 +59,7 @@ data "aws_iam_policy_document" "gha-admin-tester-permissions" {
       "iam:ListPolicies",
       "iam:ListPolicyVersions",
       "iam:ListRolePolicies",
+      "iam:TagPolicy",
       "iam:TagRole",
       "sts:AssumeRole",
       "sts:GetCallerIdentity"
