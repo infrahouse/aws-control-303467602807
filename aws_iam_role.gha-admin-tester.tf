@@ -90,3 +90,9 @@ resource "aws_iam_role_policy_attachment" "gha-admin-tester" {
   policy_arn = aws_iam_policy.gha-admin-tester-permissions.arn
   role       = aws_iam_role.gha-admin-tester.name
 }
+
+resource "aws_iam_role_policy_attachment" "gha-admin-tester-pytest-permissions" {
+  provider   = aws.aws-303467602807-uw1
+  policy_arn = aws_iam_policy.pytest-permissions.arn
+  role       = aws_iam_role.gha-admin-tester.name
+}
