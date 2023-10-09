@@ -68,7 +68,6 @@ data "aws_iam_policy_document" "service-network-tester-permissions" {
       "ec2:DescribeNatGateways",
       "ec2:DescribeNetworkAcls",
       "ec2:DescribeNetworkInterfaces",
-      "ec2:DescribeRegions",
       "ec2:DescribeRouteTables",
       "ec2:DescribeSecurityGroupRules",
       "ec2:DescribeSecurityGroups",
@@ -113,5 +112,11 @@ resource "aws_iam_role" "service-network-tester" {
 resource "aws_iam_role_policy_attachment" "service-network-tester" {
   provider   = aws.aws-303467602807-uw1
   policy_arn = aws_iam_policy.service-network-tester-permissions.arn
+  role       = aws_iam_role.service-network-tester.name
+}
+
+resource "aws_iam_role_policy_attachment" "service-network-tester-pytest-permissions" {
+  provider   = aws.aws-303467602807-uw1
+  policy_arn = aws_iam_policy.pytest-permissions.arn
   role       = aws_iam_role.service-network-tester.name
 }
