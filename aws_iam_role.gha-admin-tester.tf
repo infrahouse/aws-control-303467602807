@@ -43,7 +43,22 @@ data "aws_iam_policy_document" "gha-admin-tester-assume" {
 data "aws_iam_policy_document" "gha-admin-tester-permissions" {
   statement {
     actions = [
-      "iam:*",
+      "iam:AttachRolePolicy",
+      "iam:CreatePolicy",
+      "iam:CreateRole",
+      "iam:DeletePolicy",
+      "iam:DeleteRole",
+      "iam:DetachRolePolicy",
+      "iam:GetOpenIDConnectProvider",
+      "iam:GetPolicy",
+      "iam:GetPolicyVersion",
+      "iam:GetRole",
+      "iam:ListAttachedRolePolicies",
+      "iam:ListInstanceProfilesForRole",
+      "iam:ListOpenIDConnectProviders",
+      "iam:ListPolicies",
+      "iam:ListPolicyVersions",
+      "iam:ListRolePolicies",
       "sts:AssumeRole",
       "sts:GetCallerIdentity"
     ]
@@ -58,8 +73,7 @@ data "aws_iam_policy_document" "gha-admin-tester-permissions" {
 resource "aws_iam_policy" "gha-admin-tester-permissions" {
   provider = aws.aws-303467602807-uw1
   name     = "${local.gha_admin_tester_role_name}-permissions"
-  #  policy   = data.aws_iam_policy_document.gha-admin-tester-permissions.json
-  policy = data.aws_iam_policy.administrator-access.policy
+  policy   = data.aws_iam_policy_document.gha-admin-tester-permissions.json
 }
 
 # IAM role
