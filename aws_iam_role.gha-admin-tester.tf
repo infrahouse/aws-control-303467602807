@@ -63,6 +63,7 @@ data "aws_iam_policy_document" "gha-admin-tester-permissions" {
       "iam:TagRole",
       "s3:CreateBucket",
       "s3:DeleteBucket",
+      "s3:HeadBucket",
       "s3:PutBucketTagging",
       "dynamodb:CreateTable",
       "dynamodb:DeleteTable",
