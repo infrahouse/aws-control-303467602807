@@ -43,6 +43,13 @@ data "aws_iam_policy_document" "gha-admin-tester-assume" {
 data "aws_iam_policy_document" "gha-admin-tester-permissions" {
   statement {
     actions = [
+      "dynamodb:CreateTable",
+      "dynamodb:DeleteTable",
+      "dynamodb:DescribeContinuousBackups",
+      "dynamodb:DescribeTable",
+      "dynamodb:DescribeTimeToLive",
+      "dynamodb:ListTagsOfResource",
+      "dynamodb:TagResource",
       "iam:AttachRolePolicy",
       "iam:CreatePolicy",
       "iam:CreateRole",
@@ -63,15 +70,21 @@ data "aws_iam_policy_document" "gha-admin-tester-permissions" {
       "iam:TagRole",
       "s3:CreateBucket",
       "s3:DeleteBucket",
+      "s3:GetBucketAccelerateConfiguration",
       "s3:GetBucketAcl",
       "s3:GetBucketCors",
+      "s3:GetBucketEncryption",
+      "s3:GetBucketLifecycleConfiguration",
+      "s3:GetBucketLogging",
       "s3:GetBucketPolicy",
+      "s3:GetBucketReplication",
+      "s3:GetBucketRequestPayment",
+      "s3:GetBucketTagging",
+      "s3:GetBucketVersioning",
       "s3:GetBucketWebsite",
+      "s3:GetObjectLockConfiguration",
       "s3:ListBucket",
       "s3:PutBucketTagging",
-      "dynamodb:CreateTable",
-      "dynamodb:DeleteTable",
-      "dynamodb:TagResource",
       "sts:AssumeRole",
       "sts:GetCallerIdentity"
     ]
