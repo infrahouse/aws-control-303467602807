@@ -64,6 +64,7 @@ data "aws_iam_policy_document" "gha-admin-tester-permissions" {
       "s3:CreateBucket",
       "s3:DeleteBucket",
       "s3:GetBucketAcl",
+      "s3:GetBucketCors",
       "s3:GetBucketPolicy",
       "s3:ListBucket",
       "s3:PutBucketTagging",
