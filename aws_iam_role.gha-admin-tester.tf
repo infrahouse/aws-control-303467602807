@@ -61,6 +61,10 @@ data "aws_iam_policy_document" "gha-admin-tester-permissions" {
       "iam:ListRolePolicies",
       "iam:TagPolicy",
       "iam:TagRole",
+      "s3:CreateBucket",
+      "s3:DeleteBucket",
+      "dynamodb:CreateTable",
+      "dynamodb:DeleteTable",
       "sts:AssumeRole",
       "sts:GetCallerIdentity"
     ]
