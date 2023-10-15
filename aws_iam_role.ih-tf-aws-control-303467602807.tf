@@ -1,7 +1,8 @@
 # Roles for CI/CD in the aws-control-303467602807 repo
 
 module "ih-tf-aws-control-303467602807-admin" {
-  source = "infrahouse/gha-admin/aws"
+  source  = "infrahouse/gha-admin/aws"
+  version = "~> 1.0"
   providers = {
     aws = aws.aws-303467602807-uw1
   }
