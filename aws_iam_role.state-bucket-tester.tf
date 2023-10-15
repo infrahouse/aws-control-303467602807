@@ -50,7 +50,6 @@ data "aws_iam_policy_document" "state-bucket-tester-permissions" {
       "dynamodb:ListTagsOfResource",
       "s3:CreateBucket",
       "s3:DeleteBucket",
-      "s3:DeletePublicAccessBlock",
       "s3:GetAccelerateConfiguration",
       "s3:GetBucketAcl",
       "s3:GetBucketCORS",
@@ -63,11 +62,11 @@ data "aws_iam_policy_document" "state-bucket-tester-permissions" {
       "s3:GetBucketWebsite",
       "s3:GetEncryptionConfiguration",
       "s3:GetLifecycleConfiguration",
-      "s3:GetPublicAccessBlock",
       "s3:GetReplicationConfiguration",
       "s3:ListBucket",
+      "s3:PutBucketPublicAccessBlock",
       "s3:PutBucketTagging",
-      "s3:PutPublicAccessBlock",
+      "s3:PutBucketVersioning",
       "sts:AssumeRole",
       "sts:GetCallerIdentity"
     ]
