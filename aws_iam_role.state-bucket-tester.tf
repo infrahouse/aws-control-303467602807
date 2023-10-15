@@ -42,6 +42,32 @@ data "aws_iam_policy_document" "state-bucket-tester-assume" {
 data "aws_iam_policy_document" "state-bucket-tester-permissions" {
   statement {
     actions = [
+      "dynamodb:CreateTable",
+      "dynamodb:DeleteTable",
+      "dynamodb:DescribeContinuousBackups",
+      "dynamodb:DescribeTable",
+      "dynamodb:DescribeTimeToLive",
+      "dynamodb:ListTagsOfResource",
+      "s3:CreateBucket",
+      "s3:DeleteBucket",
+      "s3:DeletePublicAccessBlock",
+      "s3:GetAccelerateConfiguration",
+      "s3:GetBucketAcl",
+      "s3:GetBucketCORS",
+      "s3:GetBucketLogging",
+      "s3:GetBucketObjectLockConfiguration",
+      "s3:GetBucketPolicy",
+      "s3:GetBucketRequestPayment",
+      "s3:GetBucketTagging",
+      "s3:GetBucketVersioning",
+      "s3:GetBucketWebsite",
+      "s3:GetEncryptionConfiguration",
+      "s3:GetLifecycleConfiguration",
+      "s3:GetPublicAccessBlock",
+      "s3:GetReplicationConfiguration",
+      "s3:ListBucket",
+      "s3:PutBucketTagging",
+      "s3:PutPublicAccessBlock",
       "sts:AssumeRole",
       "sts:GetCallerIdentity"
     ]
@@ -69,9 +95,8 @@ resource "aws_iam_role" "state-bucket-tester" {
 }
 
 resource "aws_iam_role_policy_attachment" "state-bucket-tester" {
-  provider = aws.aws-303467602807-uw1
-  #  policy_arn = aws_iam_policy.state-bucket-tester-permissions.arn
-  policy_arn = data.aws_iam_policy.administrator-access.arn
+  provider   = aws.aws-303467602807-uw1
+  policy_arn = aws_iam_policy.state-bucket-tester-permissions.arn
   role       = aws_iam_role.state-bucket-tester.name
 }
 
