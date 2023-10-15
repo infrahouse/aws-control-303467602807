@@ -10,8 +10,7 @@ data "aws_iam_policy_document" "state-bucket-tester-assume" {
     principals {
       type = "AWS"
       identifiers = [
-        local.me_arn,
-        "arn:aws:iam::${local.home_account_id}:role/${local.service_network_tester_role_name}"
+        local.me_arn
       ]
     }
   }
