@@ -56,6 +56,7 @@ data "aws_iam_policy_document" "state-bucket-tester-permissions" {
       "s3:GetBucketLogging",
       "s3:GetBucketObjectLockConfiguration",
       "s3:GetBucketPolicy",
+      "s3:GetBucketPublicAccessBlock",
       "s3:GetBucketRequestPayment",
       "s3:GetBucketTagging",
       "s3:GetBucketVersioning",
@@ -67,6 +68,7 @@ data "aws_iam_policy_document" "state-bucket-tester-permissions" {
       "s3:PutBucketPublicAccessBlock",
       "s3:PutBucketTagging",
       "s3:PutBucketVersioning",
+      "s3:PutEncryptionConfiguration",
       "sts:AssumeRole",
       "sts:GetCallerIdentity"
     ]
