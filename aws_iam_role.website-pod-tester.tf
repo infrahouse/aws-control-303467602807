@@ -52,6 +52,7 @@ data "aws_iam_policy_document" "website-pod-tester-permissions" {
       "autoscaling:DeleteAutoScalingGroup",
       "autoscaling:DeletePolicy",
       "autoscaling:DescribeAutoScalingGroups",
+      "autoscaling:DescribeInstanceRefreshes",
       "autoscaling:DescribePolicies",
       "autoscaling:DescribeScalingActivities",
       "autoscaling:PutScalingPolicy",
