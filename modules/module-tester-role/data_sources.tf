@@ -59,7 +59,7 @@ data "aws_iam_policy_document" "role-trust" {
 
 data "aws_iam_policy_document" "role-permissions" {
   statement {
-    actions   = var.role_permissions
+    actions   = length(var.role_permissions) > 0 ? var.role_permissions : ["sts:GetCallerIdentity"]
     resources = ["*"]
   }
 }
