@@ -14,12 +14,17 @@ resource "aws_iam_role" "role-tester" {
   assume_role_policy = data.aws_iam_policy_document.role-trust.json
 }
 
-resource "aws_iam_role_policy_attachment" "gha-admin-tester-pytest-permissions" {
+resource "aws_iam_role_policy_attachment" "role-pytest-permissions" {
   policy_arn = aws_iam_policy.pytest-permissions.arn
   role       = aws_iam_role.role-tester.name
 }
 
-resource "aws_iam_role_policy_attachment" "role-tester-admin" {
+resource "aws_iam_role_policy_attachment" "role-permissions" {
+  policy_arn = aws_iam_policy.role-permissions.arn
+  role       = aws_iam_role.role-tester.name
+}
+
+resource "aws_iam_role_policy_attachment" "role-admin-permissions" {
   count      = var.grant_admin_permissions ? 1 : 0
   policy_arn = data.aws_iam_policy.administrator-access.arn
   role       = aws_iam_role.role-tester.name
