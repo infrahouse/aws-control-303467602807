@@ -1,5 +1,8 @@
 module "github-role-tester" {
-  source      = "./modules/module-tester-role"
+  source = "./modules/module-tester-role"
+  providers = {
+    aws = aws.aws-303467602807-uw1
+  }
   gh_org_name = "infrahouse"
   repo_name   = "terraform-aws-github-role"
   role_name   = "github-role-tester"
