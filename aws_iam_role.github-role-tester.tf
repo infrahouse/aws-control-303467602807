@@ -9,6 +9,17 @@ module "github-role-tester" {
   trusted_iam_user_arn = {
     "me" : local.me_arn
   }
-  role_permissions        = []
-  grant_admin_permissions = true
+  role_permissions = [
+    "iam:CreateRole",
+    "iam:DeleteRole",
+    "iam:GetOpenIDConnectProvider",
+    "iam:GetRole",
+    "iam:ListAttachedRolePolicies",
+    "iam:ListInstanceProfilesForRole",
+    "iam:ListOpenIDConnectProviders",
+    "iam:ListRolePolicies",
+    "sts:AssumeRole",
+    "sts:GetCallerIdentity"
+  ]
+  grant_admin_permissions = false
 }
