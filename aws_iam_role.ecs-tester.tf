@@ -21,6 +21,6 @@ resource "aws_iam_role_policy_attachment" "ecs-tester-service-network-permission
 
 resource "aws_iam_role_policy_attachment" "ecs-tester-website-pod-permissions" {
   provider   = aws.aws-303467602807-uw1
-  policy_arn = aws_iam_policy.website-pod-tester-permissions.arn
+  policy_arn = module.website-pod-tester.permissions_policy_arn
   role       = module.ecs-tester.role_name
 }
