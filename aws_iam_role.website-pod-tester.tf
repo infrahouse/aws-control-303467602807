@@ -9,7 +9,7 @@ module "website-pod-tester" {
   trusted_iam_user_arn = {
     "me" : local.me_arn
   }
-  role_permissions        = [
+  role_permissions = [
     "acm:DeleteCertificate",
     "acm:DescribeCertificate",
     "acm:ListTagsForCertificate",
