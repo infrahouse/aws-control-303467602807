@@ -22,8 +22,6 @@ module "jumphost-tester" {
 
     "autoscaling:DescribeAutoScalingGroups",
     "autoscaling:DescribeLifecycleHooks",
-    "cloudwatch logs:DescribeLogGroups",
-    "cloudwatch logs:ListTagsLogGroup",
     "ec2:DescribeLaunchTemplateVersions",
     "ec2:DescribeLaunchTemplates",
     "eventbridge:DescribeRule",
@@ -38,6 +36,8 @@ module "jumphost-tester" {
     "lambda:GetFunctionEventInvokeConfig",
     "lambda:GetPolicy",
     "lambda:ListVersionsByFunction",
+    "logs:DescribeLogGroups",
+    "logs:ListTagsLogGroup",
     "route53:GetHostedZone",
     "route53:ListTagsForResource",
     "s3:GetAccelerateConfiguration",
@@ -53,11 +53,10 @@ module "jumphost-tester" {
     "s3:GetBucketWebsite",
     "s3:GetEncryptionConfiguration",
     "s3:GetLifecycleConfiguration",
+    "s3:GetObject",
     "s3:GetObjectTagging",
     "s3:GetReplicationConfiguration",
-    "s3:GetObject",
     "s3:ListBucket"
-
   ]
   grant_admin_permissions = true
 }
