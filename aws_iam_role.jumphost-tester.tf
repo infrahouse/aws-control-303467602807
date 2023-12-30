@@ -21,6 +21,7 @@ module "jumphost-tester" {
     "iam:GetRole",
     "iam:GetPolicy",
     "autoscaling:StartInstanceRefresh",
+    "autoscaling:DescribeInstanceRefreshes",
 
     # Plan permissions
     "autoscaling:DescribeAutoScalingGroups",
