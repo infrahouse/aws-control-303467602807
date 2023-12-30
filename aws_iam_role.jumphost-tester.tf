@@ -73,6 +73,7 @@ module "jumphost-tester" {
     "ec2:RunInstances",
     "events:PutRule",
     "events:PutTargets",
+    "events:TagResource",
     "iam:AddRoleToInstanceProfile",
     "iam:AttachRolePolicy",
     "iam:CreateInstanceProfile",
