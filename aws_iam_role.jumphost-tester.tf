@@ -11,9 +11,17 @@ module "jumphost-tester" {
   }
   role_permissions = [
     "sts:AssumeRole",
-    "sts:GetCallerIdentity"
+    "sts:GetCallerIdentity",
+    "route53:ListHostedZones",
+    "ec2:DescribeAvailabilityZones",
+    "ec2:DescribeKeyPairs",
+    "ec2:DescribeImages",
+    "iam:ListPolicies",
+    "iam:GetRole",
+    "iam:GetPolicy"
+
   ]
-  grant_admin_permissions = false
+  grant_admin_permissions = true
 }
 
 resource "aws_iam_role_policy_attachment" "jumphost-tester-admin-permissions" {
