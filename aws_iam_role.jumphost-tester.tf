@@ -70,6 +70,7 @@ module "jumphost-tester" {
     "ec2:CreateLaunchTemplate",
     "ec2:CreateTags",
     "ec2:ImportKeyPair",
+    "ec2:RunInstances",
     "events:PutRule",
     "events:PutTargets",
     "iam:AddRoleToInstanceProfile",
