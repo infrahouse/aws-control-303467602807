@@ -10,7 +10,7 @@ module "jumphost-tester" {
     "me" : local.me_arn
   }
   role_permissions = [
-    # Initial
+    # Initial and test specific
     "sts:AssumeRole",
     "sts:GetCallerIdentity",
     "route53:ListHostedZones",
@@ -20,6 +20,7 @@ module "jumphost-tester" {
     "iam:ListPolicies",
     "iam:GetRole",
     "iam:GetPolicy",
+    "autoscaling:StartInstanceRefresh",
 
     # Plan permissions
     "autoscaling:DescribeAutoScalingGroups",
