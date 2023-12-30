@@ -57,9 +57,3 @@ module "gha-admin-tester" {
   ]
   grant_admin_permissions = false
 }
-
-resource "aws_iam_role_policy_attachment" "gha-admin-tester-pytest-permissions" {
-  provider   = aws.aws-303467602807-uw1
-  policy_arn = aws_iam_policy.pytest-permissions.arn
-  role       = module.gha-admin-tester.role_name
-}
