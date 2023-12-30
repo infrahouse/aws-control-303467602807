@@ -10,6 +10,7 @@ module "jumphost-tester" {
     "me" : local.me_arn
   }
   role_permissions = [
+    # Initial
     "sts:AssumeRole",
     "sts:GetCallerIdentity",
     "route53:ListHostedZones",
@@ -20,6 +21,7 @@ module "jumphost-tester" {
     "iam:GetRole",
     "iam:GetPolicy",
 
+    # Plan permissions
     "autoscaling:DescribeAutoScalingGroups",
     "autoscaling:DescribeLifecycleHooks",
     "ec2:DescribeLaunchTemplateVersions",
@@ -56,7 +58,32 @@ module "jumphost-tester" {
     "s3:GetObject",
     "s3:GetObjectTagging",
     "s3:GetReplicationConfiguration",
-    "s3:ListBucket"
+    "s3:ListBucket",
+
+    # Destroy permissions
+    "autoscaling:DeleteAutoScalingGroup",
+    "autoscaling:DeleteLifecycleHook",
+    "autoscaling:SetInstanceProtection",
+    "autoscaling:UpdateAutoScalingGroup",
+    "ec2:DeleteKeyPair",
+    "ec2:DeleteLaunchTemplate",
+    "events:DeleteRule",
+    "events:RemoveTargets",
+    "iam:DeleteInstanceProfile",
+    "iam:DeletePolicy",
+    "iam:DeleteRole",
+    "iam:DetachRolePolicy",
+    "iam:ListInstanceProfilesForRole",
+    "iam:ListPolicyVersions",
+    "iam:PassRole",
+    "iam:RemoveRoleFromInstanceProfile",
+    "lambda:DeleteFunction",
+    "lambda:DeleteFunctionEventInvokeConfig",
+    "lambda:RemovePermission",
+    "logs:DeleteLogGroup",
+    "s3:DeleteBucket",
+    "s3:DeleteObject",
+    "s3:PutBucketPublicAccessBlock"
   ]
   grant_admin_permissions = true
 }
