@@ -60,6 +60,33 @@ module "jumphost-tester" {
     "s3:GetReplicationConfiguration",
     "s3:ListBucket",
 
+    # Apply permissions
+    "autoscaling:CreateAutoScalingGroup",
+    "autoscaling:DescribeScalingActivities",
+    "autoscaling:PutLifecycleHook",
+    "ec2:CreateLaunchTemplate",
+    "ec2:CreateTags",
+    "ec2:ImportKeyPair",
+    "events:PutRule",
+    "events:PutTargets",
+    "iam:AddRoleToInstanceProfile",
+    "iam:AttachRolePolicy",
+    "iam:CreateInstanceProfile",
+    "iam:CreatePolicy",
+    "iam:CreateRole",
+    "iam:CreateServiceLinkedRole",
+    "iam:PassRole",
+    "lambda:AddPermission",
+    "lambda:CreateFunction",
+    "lambda:PutFunctionEventInvokeConfig",
+    "logs:CreateLogGroup",
+    "logs:PutRetentionPolicy",
+    "s3:CompleteMultipartUpload",
+    "s3:CreateBucket",
+    "s3:CreateMultipartUpload",
+    "s3:PutBucketTagging",
+    "s3:UploadPart",
+
     # Destroy permissions
     "autoscaling:DeleteAutoScalingGroup",
     "autoscaling:DeleteLifecycleHook",
@@ -85,7 +112,7 @@ module "jumphost-tester" {
     "s3:DeleteObject",
     "s3:PutBucketPublicAccessBlock"
   ]
-  grant_admin_permissions = true
+  grant_admin_permissions = false
 }
 
 resource "aws_iam_role_policy_attachment" "jumphost-tester-admin-permissions" {
