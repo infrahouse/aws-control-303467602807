@@ -14,6 +14,7 @@ module "jumphost-tester" {
     "sts:AssumeRole",
     "sts:GetCallerIdentity",
     "route53:ListHostedZones",
+    "route53:ListResourceRecordSets",
     "ec2:DescribeAvailabilityZones",
     "ec2:DescribeKeyPairs",
     "ec2:DescribeImages",
