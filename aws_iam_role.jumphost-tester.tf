@@ -85,6 +85,7 @@ module "jumphost-tester" {
     "lambda:AddPermission",
     "lambda:CreateFunction",
     "lambda:PutFunctionEventInvokeConfig",
+    "lambda:TagResource",
     "logs:CreateLogGroup",
     "logs:PutRetentionPolicy",
     "kms:Decrypt",
