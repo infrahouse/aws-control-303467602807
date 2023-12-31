@@ -54,6 +54,7 @@ module "jumphost-tester" {
     "s3:GetBucketPublicAccessBlock",
     "s3:GetBucketRequestPayment",
     "s3:GetBucketVersioning",
+    "s3:GetBucketTagging",
     "s3:GetBucketWebsite",
     "s3:GetEncryptionConfiguration",
     "s3:GetLifecycleConfiguration",
