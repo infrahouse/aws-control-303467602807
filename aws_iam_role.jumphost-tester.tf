@@ -97,6 +97,7 @@ module "jumphost-tester" {
     "s3:ListMultipartUploadParts",
     "s3:PutBucketTagging",
     "s3:PutObject",
+    "s3:PutObjectTagging",
 
     # Destroy permissions
     "autoscaling:DeleteAutoScalingGroup",
