@@ -88,6 +88,7 @@ module "jumphost-tester" {
     "lambda:TagResource",
     "logs:CreateLogGroup",
     "logs:PutRetentionPolicy",
+    "logs:TagResource",
     "kms:Decrypt",
     "kms:CreateGrant",
     "kms:DescribeKey",
