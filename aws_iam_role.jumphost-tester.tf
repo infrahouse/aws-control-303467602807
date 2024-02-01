@@ -110,6 +110,7 @@ module "jumphost-tester" {
     "autoscaling:UpdateAutoScalingGroup",
     "ec2:DeleteKeyPair",
     "ec2:DeleteLaunchTemplate",
+    "ec2:DeleteSecurityGroup",
     "events:DeleteRule",
     "events:RemoveTargets",
     "iam:DeleteInstanceProfile",
