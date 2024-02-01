@@ -68,6 +68,7 @@ module "jumphost-tester" {
     "autoscaling:DescribeScalingActivities",
     "autoscaling:PutLifecycleHook",
     "ec2:CreateLaunchTemplate",
+    "ec2:CreateSecurityGroup",
     "ec2:CreateTags",
     "ec2:ImportKeyPair",
     "ec2:RunInstances",
