@@ -92,6 +92,7 @@ module "jumphost-tester" {
     "lambda:CreateFunction",
     "lambda:PutFunctionEventInvokeConfig",
     "lambda:TagResource",
+    "lambda:UpdateFunctionCode",
     "logs:CreateLogGroup",
     "logs:PutRetentionPolicy",
     "logs:TagResource",
