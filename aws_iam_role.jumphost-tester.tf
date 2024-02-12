@@ -120,6 +120,7 @@ module "jumphost-tester" {
     "events:RemoveTargets",
     "iam:DeleteInstanceProfile",
     "iam:DeletePolicy",
+    "iam:DeletePolicyVersion",
     "iam:DeleteRole",
     "iam:DetachRolePolicy",
     "iam:ListInstanceProfilesForRole",
