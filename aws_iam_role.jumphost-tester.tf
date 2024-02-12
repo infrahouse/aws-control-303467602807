@@ -81,6 +81,7 @@ module "jumphost-tester" {
     "iam:AttachRolePolicy",
     "iam:CreateInstanceProfile",
     "iam:CreatePolicy",
+    "iam:CreatePolicyVersion",
     "iam:CreateRole",
     "iam:CreateServiceLinkedRole",
     "iam:PassRole",
