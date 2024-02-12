@@ -65,6 +65,7 @@ module "jumphost-tester" {
 
     # Apply permissions
     "autoscaling:CreateAutoScalingGroup",
+    "autoscaling:CreateOrUpdateTags",
     "autoscaling:DescribeScalingActivities",
     "autoscaling:PutLifecycleHook",
     "ec2:CreateLaunchTemplate",
