@@ -71,6 +71,7 @@ module "jumphost-tester" {
     "ec2:CreateLaunchTemplateVersion",
     "ec2:CreateSecurityGroup",
     "ec2:CreateTags",
+    "ec2:DeleteTags",
     "ec2:ImportKeyPair",
     "ec2:RunInstances",
     "events:PutRule",
