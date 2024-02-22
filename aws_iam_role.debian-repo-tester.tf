@@ -120,5 +120,5 @@ module "debian-repo-tester" {
       ]
     )
   )
-  grant_admin_permissions = false
+  grant_admin_permissions = true
 }
