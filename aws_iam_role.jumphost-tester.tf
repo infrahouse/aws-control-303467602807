@@ -135,7 +135,7 @@ module "jumphost-tester" {
     "s3:DeleteBucket",
     "s3:DeleteObject",
   ]
-  grant_admin_permissions = false
+  grant_admin_permissions = true
 }
 
 resource "aws_iam_role_policy_attachment" "jumphost-tester-admin-permissions" {
