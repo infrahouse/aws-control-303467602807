@@ -1,4 +1,4 @@
-module "github-role-tester" {
+module "cloud-init-tester" {
   source = "./modules/module-tester-role"
   providers = {
     aws = aws.aws-303467602807-uw1
