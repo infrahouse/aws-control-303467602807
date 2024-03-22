@@ -5,7 +5,7 @@ module "postfix-tester" {
   }
   gh_org_name = "infrahouse"
   repo_name   = "terraform-aws-postfix"
-  role_name   = "pypiserver-tester"
+  role_name   = "postfix-tester"
   trusted_iam_user_arn = {
     "me" : local.me_arn
   }
