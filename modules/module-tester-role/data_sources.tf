@@ -20,10 +20,16 @@ data "aws_iam_policy_document" "pytest-permissions" {
   }
 }
 
+data "aws_caller_identity" "current" {}
 
 data "aws_iam_policy_document" "role-trust" {
   dynamic "statement" {
-    for_each = var.trusted_iam_user_arn
+    for_each = merge(
+      var.trusted_iam_user_arn,
+      {
+        self : "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/${var.role_name}"
+      }
+    )
     content {
       actions = ["sts:AssumeRole"]
       principals {
