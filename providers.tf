@@ -30,3 +30,14 @@ provider "aws" {
     tags = var.default_tags
   }
 }
+
+provider "aws" {
+  alias  = "tfstates"
+  region = "us-west-1"
+  assume_role {
+    role_arn = "arn:aws:iam::289256138624:role/ih-tf-aws-control-303467602807-state-manager"
+  }
+  default_tags {
+    tags = var.default_tags
+  }
+}
