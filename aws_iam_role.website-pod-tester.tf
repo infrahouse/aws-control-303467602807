@@ -94,6 +94,6 @@ module "website-pod-tester" {
 
 resource "aws_iam_role_policy_attachment" "website-pod-tester-sernive-network-permissions" {
   provider   = aws.aws-303467602807-uw1
-  policy_arn = aws_iam_policy.service-network-tester-permissions.arn
+  policy_arn = module.service-network-tester.permissions_policy_arn
   role       = module.website-pod-tester.role_name
 }
