@@ -15,7 +15,7 @@ module "elasticsearch-tester" {
 
 resource "aws_iam_role_policy_attachment" "elasticsearch-tester-service-network-permissions" {
   provider   = aws.aws-303467602807-uw1
-  policy_arn = module.service-network-tester.permissions_policy_arn
+  policy_arn = aws_iam_policy.service-network-tester-permissions.arn
   role       = module.elasticsearch-tester.role_name
 }
 
