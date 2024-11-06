@@ -10,6 +10,9 @@ module "ih-tf-aws-control-303467602807-admin" {
   repo_name                = "aws-control-303467602807"
   state_bucket             = "infrahouse-aws-control-303467602807"
   gh_org_name              = "infrahouse"
+  admin_allowed_arns = [
+    local.me_arn
+  ]
 }
 
 
