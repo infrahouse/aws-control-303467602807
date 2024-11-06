@@ -26,9 +26,6 @@ data "aws_iam_policy_document" "role-trust" {
   dynamic "statement" {
     for_each = merge(
       var.trusted_iam_user_arn,
-      {
-        self : "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/${var.role_name}"
-      }
     )
     content {
       actions = ["sts:AssumeRole"]
@@ -37,6 +34,21 @@ data "aws_iam_policy_document" "role-trust" {
         identifiers = [statement.value]
       }
     }
+  }
+  statement {
+    actions = ["sts:AssumeRole"]
+    principals {
+      type        = "AWS"
+      identifiers = ["arn:aws:iam::${data.aws_caller_identity.current.account_id}:root"]
+    }
+    condition {
+      variable = "aws:PrincipalArn"
+      test     = "ArnEquals"
+      values = [
+        "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/${var.role_name}"
+      ]
+    }
+
   }
   statement {
     actions = ["sts:AssumeRoleWithWebIdentity"]
