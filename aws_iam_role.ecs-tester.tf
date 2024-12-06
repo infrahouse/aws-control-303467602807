@@ -3,9 +3,10 @@ module "ecs-tester" {
   providers = {
     aws = aws.aws-303467602807-uw1
   }
-  gh_org_name = "infrahouse"
-  repo_name   = "terraform-aws-ecs"
-  role_name   = "ecs-tester"
+  gh_org_name          = "infrahouse"
+  repo_name            = "terraform-aws-ecs"
+  role_name            = "ecs-tester"
+  max_session_duration = 12 * 3600
   trusted_iam_user_arn = {
     "me" : local.me_arn
   }

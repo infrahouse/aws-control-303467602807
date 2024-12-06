@@ -9,9 +9,10 @@ resource "aws_iam_policy" "role-permissions" {
 }
 
 resource "aws_iam_role" "role-tester" {
-  name               = var.role_name
-  description        = "Role to test module ${var.gh_org_name}/${var.repo_name}"
-  assume_role_policy = data.aws_iam_policy_document.role-trust.json
+  name                 = var.role_name
+  description          = "Role to test module ${var.gh_org_name}/${var.repo_name}"
+  assume_role_policy   = data.aws_iam_policy_document.role-trust.json
+  max_session_duration = var.max_session_duration
 }
 
 resource "aws_iam_role_policy_attachment" "role-pytest-permissions" {

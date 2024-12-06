@@ -8,6 +8,10 @@ variable "grant_admin_permissions" {
   type        = bool
   default     = false
 }
+variable "max_session_duration" {
+  description = "Maximum session duration (in seconds) that you want to set for the specified role."
+  default     = 3600
+}
 
 variable "repo_name" {
   description = "Repository name in GitHub. Without the organization part."
