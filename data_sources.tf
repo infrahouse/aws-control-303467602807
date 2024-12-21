@@ -26,3 +26,7 @@ data "aws_iam_policy_document" "pytest-permissions" {
     resources = ["*"]
   }
 }
+
+data "aws_availability_zones" "uw1" {
+  state = "available"
+}
