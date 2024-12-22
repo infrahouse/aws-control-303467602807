@@ -25,6 +25,7 @@ module "actions-runner" {
   extra_labels               = ["oracular", "hugo"]
   puppet_hiera_config_path   = "/opt/infrahouse-puppet-data/environments/${local.environment}/hiera.yaml"
   packages = [
+    "devscripts",
     "infrahouse-puppet-data",
     "golang",
     "hugo",
