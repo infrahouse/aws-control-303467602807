@@ -29,5 +29,6 @@ module "actions-runner" {
     "golang",
     "hugo",
     "nodejs",
+    "npm",
   ]
 }
