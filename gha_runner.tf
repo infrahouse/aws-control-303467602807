@@ -26,7 +26,8 @@ module "actions-runner" {
   puppet_hiera_config_path   = "/opt/infrahouse-puppet-data/environments/${local.environment}/hiera.yaml"
   packages = [
     "infrahouse-puppet-data",
+    "golang",
+    "hugo",
     "nodejs",
-    "hugo"
   ]
 }
