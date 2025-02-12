@@ -90,6 +90,7 @@ module "website-pod-tester" {
     "route53:ListTagsForResource",
   ]
   grant_admin_permissions = true
+  max_session_duration    = 12 * 3600
 }
 
 resource "aws_iam_role_policy_attachment" "website-pod-tester-sernive-network-permissions" {
