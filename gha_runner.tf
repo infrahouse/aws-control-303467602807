@@ -49,7 +49,7 @@ module "actions-runner-noble" {
   asg_max_size               = 1
   on_demand_base_capacity    = 0
   ubuntu_codename            = "noble"
-  extra_labels               = ["oracular"]
+  extra_labels               = ["noble"]
   puppet_hiera_config_path   = "/opt/infrahouse-puppet-data/environments/${local.environment}/hiera.yaml"
   packages = [
     "debhelper",
