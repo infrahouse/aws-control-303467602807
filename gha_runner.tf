@@ -1,6 +1,3 @@
-locals {
-  github_actions_role = "actions-runner"
-}
 data "aws_secretsmanager_secret" "github-terraform-app-key" {
   name = "action-runner-pem-20241116182707976200000001"
 }
@@ -14,7 +11,7 @@ module "actions-runner" {
   github_app_id              = 1016363
   github_app_pem_secret_arn  = data.aws_secretsmanager_secret.github-terraform-app-key.arn
   subnet_ids                 = module.management.subnet_public_ids
-  role_name                  = local.github_actions_role
+  role_name                  = "actions-runner-oracular"
   instance_type              = "t3a.small"
   root_volume_size           = 64
   max_instance_lifetime_days = 5
@@ -44,7 +41,7 @@ module "actions-runner-noble" {
   github_app_id              = 1016363
   github_app_pem_secret_arn  = data.aws_secretsmanager_secret.github-terraform-app-key.arn
   subnet_ids                 = module.management.subnet_public_ids
-  role_name                  = local.github_actions_role
+  role_name                  = "actions-runner-noble"
   instance_type              = "t3a.small"
   root_volume_size           = 64
   max_instance_lifetime_days = 5
