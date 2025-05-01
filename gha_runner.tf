@@ -4,7 +4,7 @@ data "aws_secretsmanager_secret" "github-terraform-app-key" {
 
 module "actions-runner" {
   source  = "registry.infrahouse.com/infrahouse/actions-runner/aws"
-  version = "~> 2.5"
+  version = "~> 2.11"
 
   environment                = local.environment
   github_org_name            = "infrahouse"
@@ -16,7 +16,7 @@ module "actions-runner" {
   root_volume_size           = 64
   max_instance_lifetime_days = 5
   asg_min_size               = 1
-  asg_max_size               = 1
+  asg_max_size               = 3
   on_demand_base_capacity    = 0
   ubuntu_codename            = "oracular"
   extra_labels               = ["oracular", "hugo"]
@@ -34,7 +34,7 @@ module "actions-runner" {
 
 module "actions-runner-noble" {
   source  = "registry.infrahouse.com/infrahouse/actions-runner/aws"
-  version = "~> 2.5"
+  version = "~> 2.11"
 
   environment                = local.environment
   github_org_name            = "infrahouse"
@@ -46,7 +46,7 @@ module "actions-runner-noble" {
   root_volume_size           = 64
   max_instance_lifetime_days = 5
   asg_min_size               = 1
-  asg_max_size               = 1
+  asg_max_size               = 3
   on_demand_base_capacity    = 0
   ubuntu_codename            = "noble"
   extra_labels               = ["noble"]
