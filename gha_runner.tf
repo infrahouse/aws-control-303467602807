@@ -4,7 +4,7 @@ data "aws_secretsmanager_secret" "github-terraform-app-key" {
 
 module "actions-runner" {
   source  = "registry.infrahouse.com/infrahouse/actions-runner/aws"
-  version = "~> 2.12"
+  version = "~> 2.12, >= 2.12.1"
 
   environment                = local.environment
   github_org_name            = "infrahouse"
@@ -33,7 +33,7 @@ module "actions-runner" {
 
 module "actions-runner-noble" {
   source  = "registry.infrahouse.com/infrahouse/actions-runner/aws"
-  version = "~> 2.12"
+  version = "~> 2.12, >= 2.12.1"
 
   environment                = local.environment
   github_org_name            = "infrahouse"
