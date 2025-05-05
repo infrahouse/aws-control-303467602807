@@ -17,7 +17,6 @@ module "actions-runner" {
   max_instance_lifetime_days = 5
   asg_min_size               = 1
   asg_max_size               = 3
-  on_demand_base_capacity    = 0
   ubuntu_codename            = "oracular"
   extra_labels               = ["oracular", "hugo"]
   puppet_hiera_config_path   = "/opt/infrahouse-puppet-data/environments/${local.environment}/hiera.yaml"
@@ -47,7 +46,6 @@ module "actions-runner-noble" {
   max_instance_lifetime_days = 5
   asg_min_size               = 1
   asg_max_size               = 3
-  on_demand_base_capacity    = 0
   ubuntu_codename            = "noble"
   extra_labels               = ["noble"]
   puppet_hiera_config_path   = "/opt/infrahouse-puppet-data/environments/${local.environment}/hiera.yaml"
