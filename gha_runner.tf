@@ -4,13 +4,13 @@ data "aws_secretsmanager_secret" "github-terraform-app-key" {
 
 module "actions-runner" {
   source  = "registry.infrahouse.com/infrahouse/actions-runner/aws"
-  version = "~> 2.12, >= 2.12.2"
+  version = "~> 2.13"
 
   environment                = local.environment
   github_org_name            = "infrahouse"
   github_app_id              = 1016363
   github_app_pem_secret_arn  = data.aws_secretsmanager_secret.github-terraform-app-key.arn
-  subnet_ids                 = module.management.subnet_public_ids
+  subnet_ids                 = module.management.subnet_private_ids
   role_name                  = "actions-runner-oracular"
   instance_type              = "t3a.small"
   root_volume_size           = 64
@@ -33,13 +33,13 @@ module "actions-runner" {
 
 module "actions-runner-noble" {
   source  = "registry.infrahouse.com/infrahouse/actions-runner/aws"
-  version = "~> 2.12, >= 2.12.2"
+  version = "~> 2.13"
 
   environment                = local.environment
   github_org_name            = "infrahouse"
   github_app_id              = 1016363
   github_app_pem_secret_arn  = data.aws_secretsmanager_secret.github-terraform-app-key.arn
-  subnet_ids                 = module.management.subnet_public_ids
+  subnet_ids                 = module.management.subnet_private_ids
   role_name                  = "actions-runner-noble"
   instance_type              = "t3a.small"
   root_volume_size           = 64
