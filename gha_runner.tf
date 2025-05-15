@@ -16,7 +16,8 @@ module "actions-runner" {
   root_volume_size           = 64
   max_instance_lifetime_days = 5
   asg_min_size               = 1
-  asg_max_size               = 3
+  asg_max_size               = 1
+  on_demand_base_capacity    = 0
   ubuntu_codename            = "oracular"
   extra_labels               = ["oracular", "hugo"]
   puppet_hiera_config_path   = "/opt/infrahouse-puppet-data/environments/${local.environment}/hiera.yaml"
