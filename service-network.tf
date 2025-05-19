@@ -26,7 +26,7 @@ module "management" {
     {
       cidr              = "10.0.3.0/24"
       availability-zone = data.aws_availability_zones.uw1.names[1]
-      forward_to        = "10.0.2.0/24"
+      forward_to        = "10.0.0.0/24"
     }
   ]
 }
