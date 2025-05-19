@@ -17,7 +17,6 @@ module "actions-runner" {
   max_instance_lifetime_days = 5
   asg_min_size               = 1
   asg_max_size               = 1
-  on_demand_base_capacity    = 0
   ubuntu_codename            = "oracular"
   extra_labels               = ["oracular", "hugo"]
   puppet_hiera_config_path   = "/opt/infrahouse-puppet-data/environments/${local.environment}/hiera.yaml"
@@ -34,7 +33,7 @@ module "actions-runner" {
 
 module "actions-runner-noble" {
   source  = "registry.infrahouse.com/infrahouse/actions-runner/aws"
-  version = "~> 2.13, >= 2.13.1"
+  version = "2.13.1"
 
   environment                = local.environment
   github_org_name            = "infrahouse"
