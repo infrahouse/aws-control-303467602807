@@ -22,7 +22,6 @@ module "management" {
       cidr                    = "10.0.2.0/24"
       availability-zone       = data.aws_availability_zones.uw1.names[1]
       map_public_ip_on_launch = true
-      forward_to              = ""
     },
     {
       cidr              = "10.0.3.0/24"
