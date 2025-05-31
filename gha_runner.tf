@@ -33,7 +33,7 @@ module "actions-runner" {
 
 module "actions-runner-noble" {
   source  = "registry.infrahouse.com/infrahouse/actions-runner/aws"
-  version = "2.13.1"
+  version = "2.15.1"
 
   environment                = local.environment
   github_org_name            = "infrahouse"
