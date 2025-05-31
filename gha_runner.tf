@@ -15,6 +15,7 @@ module "actions-runner" {
   instance_type              = "t3a.small"
   root_volume_size           = 64
   max_instance_lifetime_days = 5
+  on_demand_base_capacity    = 0
   asg_min_size               = 1
   asg_max_size               = 1
   ubuntu_codename            = "oracular"
