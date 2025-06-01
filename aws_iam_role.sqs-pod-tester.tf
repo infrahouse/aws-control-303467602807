@@ -5,7 +5,7 @@ module "sqs-pod-tester" {
   }
   gh_org_name = "infrahouse"
   repo_name   = "terraform-aws-sqs-pod"
-  role_name   = "tcp-pod-tester"
+  role_name   = "sqs-pod-tester"
   trusted_iam_user_arn = {
     "me" : local.me_arn
   }
