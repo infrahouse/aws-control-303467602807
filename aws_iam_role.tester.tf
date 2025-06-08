@@ -1,0 +1,46 @@
+locals {
+  tester_roles = {
+    actions-runner-tester : "terraform-aws-actions-runner"
+    aerospike-tester : "terraform-aws-aerospike"
+    bookstack-tester : "terraform-aws-bookstack"
+    cloud-init-tester : "terraform-aws-cloud-init"
+    debian-repo-tester : "terraform-aws-debian-repo"
+    ecr-tester : "terraform-aws-ecr"
+    ecs-tester : "terraform-aws-ecs"
+    elasticsearch-tester : "terraform-aws-elasticsearch"
+    gha-admin-tester : "terraform-aws-gha-admin"
+    github-role-tester : "terraform-aws-github-role"
+    guardduty-configuration-tester : "terraform-aws-guardduty-configuration"
+    instance-profile-tester : "terraform-aws-instance-profile"
+    jumphost-tester : "terraform-aws-jumphost"
+    kibana-tester : "terraform-aws-kibana"
+    openvpn-tester : "terraform-aws-openvpn"
+    postfix-tester : "terraform-aws-postfix"
+    pypiserver-tester : "terraform-aws-pypiserver"
+    secret-tester : "terraform-aws-secret"
+    service-network-tester : "terraform-aws-service-network"
+    sqs-ecs-tester : "terraform-aws-sqs-ecs"
+    sqs-pod-tester : "terraform-aws-sqs-pod"
+    state-bucket-tester : "terraform-aws-state-bucket"
+    tags-override-tester : "terraform-aws-tags-override"
+    tcp-pod-tester : "terraform-aws-tcp-pod"
+    terraformer-tester : "terraform-aws-terraformer"
+    website-pod-tester : "terraform-aws-website-pod"
+  }
+}
+
+module "ci-tester" {
+  for_each = local.tester_roles
+  source   = "./modules/module-tester-role"
+  providers = {
+    aws = aws.aws-303467602807-uw1
+  }
+  gh_org_name          = "infrahouse"
+  repo_name            = each.value
+  role_name            = each.key
+  max_session_duration = 12 * 3600
+  trusted_iam_user_arn = {
+    "me" : local.me_arn
+  }
+  grant_admin_permissions = true
+}
