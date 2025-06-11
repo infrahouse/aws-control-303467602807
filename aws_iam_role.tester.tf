@@ -25,7 +25,7 @@ locals {
     tags-override-tester : "terraform-aws-tags-override"
     tcp-pod-tester : "terraform-aws-tcp-pod"
     terraformer-tester : "terraform-aws-terraformer"
-    update-dns : "terraform-aws-update-dns"
+    update-dns-tester : "terraform-aws-update-dns"
     website-pod-tester : "terraform-aws-website-pod"
   }
 }
