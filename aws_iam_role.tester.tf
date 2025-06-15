@@ -8,6 +8,7 @@ locals {
     ecr-tester : "terraform-aws-ecr"
     ecs-tester : "terraform-aws-ecs"
     elasticsearch-tester : "terraform-aws-elasticsearch"
+    gh-identity-provider-tester : "terraform-aws-gh-identity-provider"
     gha-admin-tester : "terraform-aws-gha-admin"
     github-role-tester : "terraform-aws-github-role"
     guardduty-configuration-tester : "terraform-aws-guardduty-configuration"
