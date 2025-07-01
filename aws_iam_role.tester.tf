@@ -25,6 +25,7 @@ locals {
     state-bucket-tester : "terraform-aws-state-bucket"
     tags-override-tester : "terraform-aws-tags-override"
     tcp-pod-tester : "terraform-aws-tcp-pod"
+    teleport-agent-tester : "terraform-aws-teleport-agent"
     terraformer-tester : "terraform-aws-terraformer"
     update-dns-tester : "terraform-aws-update-dns"
     website-pod-tester : "terraform-aws-website-pod"
