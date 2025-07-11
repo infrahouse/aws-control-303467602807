@@ -30,7 +30,7 @@ locals {
     update-dns-tester : "terraform-aws-update-dns"
     website-pod-tester : "terraform-aws-website-pod"
     emrserverless-tester : "terraform-aws-emrserverless"
-    http-redirect : "terraform-aws-http-redirect"
+    http-redirect-tester : "terraform-aws-http-redirect"
   }
 }
 
