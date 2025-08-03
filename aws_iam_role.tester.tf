@@ -5,6 +5,7 @@ locals {
     bookstack-tester : "terraform-aws-bookstack"
     cloud-init-tester : "terraform-aws-cloud-init"
     debian-repo-tester : "terraform-aws-debian-repo"
+    dms-tester : "terraform-aws-dms"
     ecr-tester : "terraform-aws-ecr"
     ecs-tester : "terraform-aws-ecs"
     elasticsearch-tester : "terraform-aws-elasticsearch"
