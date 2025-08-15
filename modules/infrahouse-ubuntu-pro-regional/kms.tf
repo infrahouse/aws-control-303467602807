@@ -7,7 +7,6 @@ module "infrahouse-ubuntu-pro-key" {
   key_name        = "infrahouse-ubuntu-pro"
   service_name    = "infrahouse-ubuntu-pro"
   key_users = [
-    #
     var.github_role_arn
   ]
 }

@@ -1,7 +1,7 @@
 resource "aws_ssm_parameter" "infrahouse-ubuntu-pro" {
-  name        = "infrahouse-ubuntu-pro-args"
+  name        = "/infrahouse/ubuntu-pro/args"
   description = "Input arguments for the infrahouse-ubuntu-pro packer GitHub Actions job"
-  type        = "String"
+  type        = "SecureString"
   key_id      = module.infrahouse-ubuntu-pro-key.kms_key_arn
   value = jsonencode(
     {
@@ -16,7 +16,7 @@ resource "aws_ssm_parameter" "infrahouse-ubuntu-pro" {
 
 resource "aws_ssm_parameter" "infrahouse-ubuntu-pro-latest-image" {
   for_each    = toset(var.supported_codenames)
-  name        = "infrahouse-ubuntu-pro-args-${each.key}"
+  name        = "/infrahouse/ubuntu-pro/latest/${each.key}"
   description = "The parameter to store the last known AMI for Ubuntu ${each.key}"
   type        = "String"
   key_id      = module.infrahouse-ubuntu-pro-key.kms_key_arn

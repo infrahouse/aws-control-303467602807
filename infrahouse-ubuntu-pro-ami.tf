@@ -44,8 +44,6 @@ resource "aws_iam_role_policy_attachment" "infrahouse-ubuntu-pro-permissions" {
   role       = module.infrahouse-ubuntu-pro-github.github_role_name
 }
 
-# SSH key
-
 
 # region specific resources
 module "infrahouse-ubuntu-pro-uw-1" {
