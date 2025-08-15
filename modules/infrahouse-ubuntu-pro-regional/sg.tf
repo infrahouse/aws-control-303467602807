@@ -1,6 +1,7 @@
 # Security group
 resource "aws_security_group" "infrahouse-ubuntu-pro" {
   name_prefix = "all-house-ubuntu-pro"
+  vpc_id      = data.aws_vpc.this.id
 }
 
 resource "aws_vpc_security_group_ingress_rule" "ssh" {
