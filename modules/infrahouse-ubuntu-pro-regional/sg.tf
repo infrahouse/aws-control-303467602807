@@ -4,12 +4,13 @@ resource "aws_security_group" "infrahouse-ubuntu-pro" {
 }
 
 resource "aws_vpc_security_group_ingress_rule" "ssh" {
+  for_each          = toset(data.aws_nat_gateways.current.ids)
   description       = "Allow SSH traffic"
   security_group_id = aws_security_group.infrahouse-ubuntu-pro.id
   from_port         = 22
   to_port           = 22
   ip_protocol       = "tcp"
-  cidr_ipv4         = "0.0.0.0/0"
+  cidr_ipv4         = "${data.aws_nat_gateway.current[each.key].public_ip}/32"
 }
 
 resource "aws_vpc_security_group_ingress_rule" "icmp" {
