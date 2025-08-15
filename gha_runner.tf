@@ -55,5 +55,6 @@ module "actions-runner-noble" {
     "devscripts",
     "infrahouse-puppet-data",
     "golang",
+    "packer",
   ]
 }
