@@ -24,6 +24,7 @@ resource "aws_vpc_security_group_ingress_rule" "icmp" {
 
 resource "aws_vpc_security_group_egress_rule" "outbound" {
   security_group_id = aws_security_group.infrahouse-ubuntu-pro.id
+  description       = "Instances in this security group should have access to Internet"
   ip_protocol       = "-1"
   cidr_ipv4         = "0.0.0.0/0"
 }
