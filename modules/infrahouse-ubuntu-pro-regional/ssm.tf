@@ -19,7 +19,6 @@ resource "aws_ssm_parameter" "infrahouse-ubuntu-pro-latest-image" {
   name        = "/infrahouse/ubuntu-pro/latest/${each.key}"
   description = "The parameter to store the last known AMI for Ubuntu ${each.key}"
   type        = "String"
-  key_id      = module.infrahouse-ubuntu-pro-key.kms_key_arn
   value       = "none"
   lifecycle {
     ignore_changes = [
