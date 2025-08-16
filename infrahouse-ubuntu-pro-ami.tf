@@ -11,6 +11,7 @@ data "aws_iam_policy_document" "infrahouse-ubuntu-pro-permissions" {
   statement {
     effect = "Allow"
     actions = [
+      "ec2:DescribeRegions",
       "sts:GetCallerIdentity",
     ]
     resources = ["*"]
