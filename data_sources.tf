@@ -30,3 +30,6 @@ data "aws_iam_policy_document" "pytest-permissions" {
 data "aws_availability_zones" "uw1" {
   state = "available"
 }
+
+data "aws_region" "current" {}
+data "aws_caller_identity" "current" {}
