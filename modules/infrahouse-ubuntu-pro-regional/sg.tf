@@ -1,6 +1,6 @@
 # Security group
 resource "aws_security_group" "infrahouse-ubuntu-pro" {
-  name_prefix = "all-house-ubuntu-pro"
+  name_prefix = "infrahouse-ubuntu-pro"
   vpc_id      = data.aws_vpc.this.id
 }
 
