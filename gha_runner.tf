@@ -43,6 +43,7 @@ module "actions-runner-noble" {
   subnet_ids                 = module.management.subnet_private_ids
   role_name                  = "actions-runner-noble"
   instance_type              = "t3a.small"
+  ami_id                     = data.aws_ami.ubuntu_pro_noble.id
   root_volume_size           = 64
   max_instance_lifetime_days = 5
   asg_min_size               = 1

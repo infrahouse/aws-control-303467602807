@@ -33,3 +33,35 @@ data "aws_availability_zones" "uw1" {
 
 data "aws_region" "current" {}
 data "aws_caller_identity" "current" {}
+
+data "aws_ami" "ubuntu_pro_noble" {
+  most_recent = true
+
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  filter {
+    name = "state"
+    values = [
+      "available"
+    ]
+  }
+  # --- Tag filters ---
+  filter {
+    name   = "tag:ubuntu_codename"
+    values = ["noble"]
+  }
+
+  filter {
+    name   = "tag:maintainer"
+    values = ["infrahouse"]
+  }
+  owners = ["303467602807"] # InfraHouse
+}
