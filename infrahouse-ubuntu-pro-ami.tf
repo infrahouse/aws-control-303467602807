@@ -59,14 +59,15 @@ data "aws_iam_policy_document" "infrahouse-ubuntu-pro-permissions" {
       "ssm:GetParameter",
     ]
     resources = [
-      module.infrahouse-ubuntu-pro-uw-1.infrahouse-ubuntu-pro-param-arn
+      module.infrahouse-ubuntu-pro-uw-1.infrahouse-ubuntu-pro-param-arn,
+      "arn:aws:ssm:${data.aws_region.current.name}::parameter/aws/service/canonical/*",
     ]
   }
   statement {
     effect = "Allow"
     actions = [
       "ssm:GetParameter",
-      "ssm:SetParameter",
+      "ssm:PutParameter",
     ]
     resources = module.infrahouse-ubuntu-pro-uw-1.infrahouse-ubuntu-pro-latest-image-arns
   }
@@ -94,6 +95,5 @@ module "infrahouse-ubuntu-pro-uw-1" {
   subnet_id       = module.management.subnet_public_ids[0]
   supported_codenames = [
     "noble",
-    "oracular"
   ]
 }
