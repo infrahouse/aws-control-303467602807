@@ -27,6 +27,7 @@ data "aws_iam_policy_document" "infrahouse-ubuntu-pro-permissions" {
     effect = "Allow"
     actions = [
       "ec2:DeregisterImage",
+      "ec2:DeleteSnapshot",
       "ec2:ModifyImageAttribute",
       "ec2:ModifyInstanceAttribute",
       "ec2:StopInstances",
