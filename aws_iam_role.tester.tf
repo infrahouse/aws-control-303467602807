@@ -34,6 +34,7 @@ locals {
     http-redirect-tester : "terraform-aws-http-redirect"
     key-tester : "terraform-aws-key"
     state-manager-tester : "terraform-aws-state-manager"
+    pytest-tester : "pytest-infrahouse"
   }
 }
 
