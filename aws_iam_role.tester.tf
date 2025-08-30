@@ -33,6 +33,7 @@ locals {
     emrserverless-tester : "terraform-aws-emrserverless"
     http-redirect-tester : "terraform-aws-http-redirect"
     key-tester : "terraform-aws-key"
+    state-manager-tester : "terraform-aws-state-manager"
   }
 }
 
