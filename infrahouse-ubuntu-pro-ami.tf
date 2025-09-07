@@ -1,7 +1,7 @@
 # IAM role
 module "infrahouse-ubuntu-pro-github" {
   source  = "infrahouse/github-role/aws"
-  version = "1.2.2"
+  version = "1.4.0"
 
   gh_org_name = "infrahouse"
   repo_name   = "infrahouse-ubuntu-pro"
