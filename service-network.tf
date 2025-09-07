@@ -1,6 +1,6 @@
 module "management" {
   source                = "infrahouse/service-network/aws"
-  version               = "3.1.2"
+  version               = "3.2.2"
   management_cidr_block = "10.0.0.0/22"
   service_name          = "management"
   vpc_cidr_block        = "10.0.0.0/22"
