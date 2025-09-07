@@ -4,15 +4,14 @@ module "ih-tf-aws-control-303467602807-admin" {
   source  = "infrahouse/gha-admin/aws"
   version = "~> 3.0"
   providers = {
-    aws = aws.aws-303467602807-uw1
+    aws          = aws
+    aws.cicd     = aws.aws-303467602807-uw1
+    aws.tfstates = aws.aws-289256138624-uw1
   }
-  gh_identity_provider_arn = module.github-connector.gh_openid_connect_provider_arn
-  repo_name                = "aws-control-303467602807"
-  state_bucket             = "infrahouse-aws-control-303467602807"
-  gh_org_name              = "infrahouse"
-  admin_allowed_arns = [
-    local.me_arn
-  ]
+  repo_name                 = "aws-control-303467602807"
+  state_bucket              = "infrahouse-aws-control-303467602807"
+  gh_org_name               = "infrahouse"
+  terraform_locks_table_arn = "arn:aws:dynamodb:us-west-1:289256138624:table/infrahouse-terraform-state-locks"
 }
 
 
