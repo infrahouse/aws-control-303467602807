@@ -35,6 +35,7 @@ locals {
     key-tester : "terraform-aws-key"
     state-manager-tester : "terraform-aws-state-manager"
     pytest-tester : "pytest-infrahouse"
+    s3-bucket-tester : "terraform-aws-s3-bucket"
   }
 }
 
