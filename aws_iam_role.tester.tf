@@ -20,6 +20,7 @@ locals {
     postfix-tester : "terraform-aws-postfix"
     pypiserver-tester : "terraform-aws-pypiserver"
     secret-tester : "terraform-aws-secret"
+    secret-policy-tester : "terraform-aws-secret-policy"
     service-network-tester : "terraform-aws-service-network"
     sqs-ecs-tester : "terraform-aws-sqs-ecs"
     sqs-pod-tester : "terraform-aws-sqs-pod"
