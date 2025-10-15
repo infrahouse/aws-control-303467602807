@@ -15,7 +15,7 @@ module "actions-runner-noble" {
   instance_type              = "t3a.small"
   ami_id                     = data.aws_ami.infrahouse_pro_noble.id
   root_volume_size           = 64
-  max_instance_lifetime_days = 5
+  max_instance_lifetime_days = 7
   asg_min_size               = 1
   on_demand_base_capacity    = 0
   ubuntu_codename            = "noble"
