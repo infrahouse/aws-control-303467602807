@@ -38,6 +38,7 @@ locals {
     pytest-tester : "pytest-infrahouse"
     s3-bucket-tester : "terraform-aws-s3-bucket"
     iso27001-tester : "terraform-aws-iso27001"
+    registry-tester : "terraform-aws-registry"
   }
 }
 
