@@ -1,5 +1,5 @@
 module "registry" {
-  source  = "infrahouse/registry/aws"
+  source  = "registry.ci-cd.infrahouse.com/infrahouse/registry/aws"
   version = "0.2.0"
   providers = {
     aws = aws.aws-303467602807-uw1
