@@ -4,7 +4,7 @@ data "aws_secretsmanager_secret" "github-terraform-app-key" {
 
 module "actions-runner-noble" {
   source  = "registry.infrahouse.com/infrahouse/actions-runner/aws"
-  version = "2.19.0"
+  version = "3.0.0"
 
   environment                = local.environment
   github_org_name            = "infrahouse"
@@ -27,5 +27,8 @@ module "actions-runner-noble" {
     "infrahouse-puppet-data",
     "golang",
     "packer",
+  ]
+  alarm_emails = [
+    "alerts@infrahouse.com"
   ]
 }
