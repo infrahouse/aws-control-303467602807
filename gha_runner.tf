@@ -4,7 +4,7 @@ data "aws_secretsmanager_secret" "github-terraform-app-key" {
 
 module "actions-runner-noble" {
   source  = "registry.infrahouse.com/infrahouse/actions-runner/aws"
-  version = "3.0.0"
+  version = "3.0.1"
 
   environment                = local.environment
   github_org_name            = "infrahouse"
