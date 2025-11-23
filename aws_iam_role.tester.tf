@@ -40,6 +40,7 @@ locals {
     iso27001-tester : "terraform-aws-iso27001"
     registry-tester : "terraform-aws-registry"
     lambda-monitored-tester : "terraform-aws-lambda-monitored"
+    pmm-ecs-tester : "terraform-aws-pmm-ecs"
   }
 }
 
