@@ -4,7 +4,7 @@ module "github_backup_pem" {
   environment        = local.environment
   service_name       = "github-backup-test"
   secret_description = "GitHub Backup App PEM key for CI testing"
-  secret_name_prefix = "github-backup-test-pem"
+  secret_name        = "github-backup-test-pem"
   readers            = [module.ci-tester["github-backup-tester"].role_arn]
   writers            = tolist(data.aws_iam_roles.sso-admin.arns)
   providers = {
@@ -18,7 +18,7 @@ module "github_backup_pem_uw2" {
   environment        = local.environment
   service_name       = "github-backup-test"
   secret_description = "GitHub Backup App PEM key for CI testing"
-  secret_name_prefix = "github-backup-test-pem"
+  secret_name        = "github-backup-test-pem"
   secret_value       = module.github_backup_pem.secret_value
   readers            = [module.ci-tester["github-backup-tester"].role_arn]
   writers            = tolist(data.aws_iam_roles.sso-admin.arns)
@@ -33,7 +33,7 @@ module "github_backup_pem_ue1" {
   environment        = local.environment
   service_name       = "github-backup-test"
   secret_description = "GitHub Backup App PEM key for CI testing"
-  secret_name_prefix = "github-backup-test-pem"
+  secret_name        = "github-backup-test-pem"
   secret_value       = module.github_backup_pem.secret_value
   readers            = [module.ci-tester["github-backup-tester"].role_arn]
   writers            = tolist(data.aws_iam_roles.sso-admin.arns)
