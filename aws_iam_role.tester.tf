@@ -11,6 +11,7 @@ locals {
     elasticsearch-tester : "terraform-aws-elasticsearch"
     gh-identity-provider-tester : "terraform-aws-gh-identity-provider"
     gha-admin-tester : "terraform-aws-gha-admin"
+    github-backup-tester : "terraform-aws-github-backup"
     github-role-tester : "terraform-aws-github-role"
     guardduty-configuration-tester : "terraform-aws-guardduty-configuration"
     instance-profile-tester : "terraform-aws-instance-profile"

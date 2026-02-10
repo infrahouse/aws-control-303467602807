@@ -34,3 +34,4 @@ tf.plan
 /.build/
 /plan.stderr
 /plan.stdout
+/.claude/*.local.json
