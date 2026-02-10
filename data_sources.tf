@@ -34,6 +34,12 @@ data "aws_availability_zones" "uw1" {
 data "aws_region" "current" {}
 data "aws_caller_identity" "current" {}
 
+data "aws_iam_roles" "sso-admin" {
+  provider    = aws.aws-303467602807-uw1
+  name_regex  = "AWSReservedSSO_AWSAdministratorAccess_.*"
+  path_prefix = "/aws-reserved/sso.amazonaws.com/"
+}
+
 data "aws_ami" "infrahouse_pro_noble" {
   most_recent = true
 
