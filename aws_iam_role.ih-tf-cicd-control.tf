@@ -7,6 +7,7 @@ data "aws_iam_policy_document" "ih-tf-ih-cicd-control-assume" {
     principals {
       type = "AWS"
       identifiers = [
+        local.sso_admin_arn,
         "arn:aws:iam::289256138624:role/ih-tf-github-control"
       ]
     }

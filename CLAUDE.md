@@ -63,7 +63,7 @@ InfraHouse modules use `registry.infrahouse.com` (e.g., `infrahouse/service-netw
 ### Key Locals
 
 Defined in `locals.tf`:
-- `me_arn` - IAM user ARN for the repository owner
+- `sso_admin_arn` - SSO admin role ARN (from `data.aws_iam_roles.sso-admin`)
 - `environment` - Set to `"development"`
 
 ## CI/CD
