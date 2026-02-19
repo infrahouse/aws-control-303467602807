@@ -57,4 +57,5 @@ module "ci-tester" {
   role_name               = each.key
   max_session_duration    = 12 * 3600
   grant_admin_permissions = true
+  trusted_iam_user_arn    = { sso-admin : local.sso_admin_arn }
 }

@@ -11,6 +11,7 @@ module "ih-tf-aws-control-303467602807-admin" {
   state_bucket             = "infrahouse-aws-control-303467602807"
   gh_org_name              = "infrahouse"
   admin_allowed_arns = [
+    local.sso_admin_arn
   ]
 }
 
@@ -22,6 +23,7 @@ data "aws_iam_policy_document" "ih-tf-aws-control-303467602807-read-only-assume"
     principals {
       type = "AWS"
       identifiers = [
+        local.sso_admin_arn,
         "arn:aws:iam::493370826424:role/ih-tf-aws-control-493370826424-github"
       ]
     }
