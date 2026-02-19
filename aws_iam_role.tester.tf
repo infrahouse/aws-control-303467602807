@@ -52,12 +52,9 @@ module "ci-tester" {
   providers = {
     aws = aws.aws-303467602807-uw1
   }
-  gh_org_name          = "infrahouse"
-  repo_name            = each.value
-  role_name            = each.key
-  max_session_duration = 12 * 3600
-  trusted_iam_user_arn = {
-    "me" : local.me_arn
-  }
+  gh_org_name             = "infrahouse"
+  repo_name               = each.value
+  role_name               = each.key
+  max_session_duration    = 12 * 3600
   grant_admin_permissions = true
 }
