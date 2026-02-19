@@ -1,20 +1,5 @@
-# Roles for CI/CD in the aws-control-303467602807 repo
-
-module "ih-tf-aws-control-303467602807-admin" {
-  source  = "infrahouse/gha-admin/aws"
-  version = "~> 1.0"
-  providers = {
-    aws = aws.aws-303467602807-uw1
-  }
-  gh_identity_provider_arn = module.github-connector.gh_openid_connect_provider_arn
-  repo_name                = "aws-control-303467602807"
-  state_bucket             = "infrahouse-aws-control-303467602807"
-  gh_org_name              = "infrahouse"
-  admin_allowed_arns = [
-    local.sso_admin_arn
-  ]
-}
-
+# CI/CD roles (gha-admin, state-manager) are now managed by the aws-control repo.
+# Only the read-only role remains here.
 
 data "aws_iam_policy_document" "ih-tf-aws-control-303467602807-read-only-assume" {
   statement {
