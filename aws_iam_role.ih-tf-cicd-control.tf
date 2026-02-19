@@ -7,7 +7,6 @@ data "aws_iam_policy_document" "ih-tf-ih-cicd-control-assume" {
     principals {
       type = "AWS"
       identifiers = [
-        "arn:aws:iam::990466748045:user/aleks",
         "arn:aws:iam::289256138624:role/ih-tf-github-control"
       ]
     }
