@@ -57,6 +57,61 @@ State backend is in account `289256138624` (S3 + DynamoDB locking).
 
 Roles are referenced as `module.ci-tester["role-name"].role_arn`.
 
+## Running Module Tests Locally
+
+Each tester role trusts the SSO admin role, so you can assume it to run
+integration tests from your workstation.
+
+### 1. Get SSO credentials
+
+Configure an AWS CLI profile for the CI/CD account in `~/.aws/config`:
+
+```ini
+[profile infrahouse-cicd-admin]
+sso_session = infrahouse
+sso_account_id = 303467602807
+sso_role_name = AWSAdministratorAccess
+region = us-west-1
+output = json
+```
+
+Then export credentials into your shell:
+
+```bash
+eval $(ih-aws --aws-profile infrahouse-cicd-admin credentials -e)
+```
+
+Verify:
+
+```bash
+$ aws sts get-caller-identity
+{
+    "UserId": "AROAUN...:aleks",
+    "Account": "303467602807",
+    "Arn": "arn:aws:sts::303467602807:assumed-role/AWSReservedSSO_AWSAdministratorAccess_.../aleks"
+}
+```
+
+### 2. Run tests in the module repository
+
+For example, to test [terraform-aws-gha-admin](https://github.com/infrahouse/terraform-aws-gha-admin):
+
+```bash
+cd /path/to/terraform-aws-gha-admin
+
+# During development — keep infrastructure for debugging
+make test-keep TEST_ROLE=arn:aws:iam::303467602807:role/gha-admin-tester
+
+# Before creating a PR — destroy all resources after tests pass
+make test-clean TEST_ROLE=arn:aws:iam::303467602807:role/gha-admin-tester
+```
+
+The tester role name matches the key in `local.tester_roles`.
+For `terraform-aws-gha-admin` the role is `gha-admin-tester`,
+for `terraform-aws-ecs` it is `ecs-tester`, etc.
+
+Tester roles have `AdministratorAccess` and a 12-hour session duration.
+
 ## CI/CD
 
 | Workflow              | Trigger        | Purpose                                  |
