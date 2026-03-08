@@ -4,6 +4,6 @@ output "infrahouse-ubuntu-pro-param-arn" {
 
 output "infrahouse-ubuntu-pro-latest-image-arns" {
   value = [
-    for cn in var.supported_codenames : aws_ssm_parameter.infrahouse-ubuntu-pro-latest-image[cn].arn
+    for key, param in aws_ssm_parameter.infrahouse-ubuntu-pro-latest-image : param.arn
   ]
 }

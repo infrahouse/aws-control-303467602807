@@ -1,3 +1,14 @@
+locals {
+  ami_regions = [
+    "us-east-1",
+    "us-east-2",
+    "us-west-1",
+    "us-west-2",
+  ]
+  supported_codenames = [
+    "noble",
+  ]
+}
 # IAM role
 module "infrahouse-ubuntu-pro-github" {
   source  = "infrahouse/github-role/aws"
@@ -11,6 +22,7 @@ data "aws_iam_policy_document" "infrahouse-ubuntu-pro-permissions" {
   statement {
     effect = "Allow"
     actions = [
+      "ec2:CopyImage",
       "ec2:CreateImage",
       "ec2:DescribeImages",
       "ec2:DescribeInstances",
@@ -45,13 +57,23 @@ data "aws_iam_policy_document" "infrahouse-ubuntu-pro-permissions" {
     actions = [
       "ec2:CreateTags",
     ]
+    resources = flatten([
+      for region in local.ami_regions : [
+        "arn:aws:ec2:${region}::image/*",
+        "arn:aws:ec2:${region}:${data.aws_caller_identity.current.account_id}:snapshot/*",
+        "arn:aws:ec2:${region}::snapshot/*",
+      ]
+    ])
+  }
+  statement {
+    effect = "Allow"
+    actions = [
+      "ec2:CreateTags",
+    ]
     resources = [
-      "arn:aws:ec2:${data.aws_region.current.name}::image/*",
-      "arn:aws:ec2:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:snapshot/*",
       "arn:aws:ec2:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:instance/*",
       "arn:aws:ec2:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:volume/*",
       "arn:aws:ec2:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:network-interface/*",
-      "arn:aws:ec2:${data.aws_region.current.name}::snapshot/*",
     ]
   }
   statement {
@@ -84,9 +106,24 @@ resource "aws_iam_role_policy_attachment" "infrahouse-ubuntu-pro-permissions" {
   role       = module.infrahouse-ubuntu-pro-github.github_role_name
 }
 
-# Prevent making AMIs publicly accessible in the region and account for which the provider is configured
+# Unblock public AMI sharing in all regions where AMIs are published
 resource "aws_ec2_image_block_public_access" "share" {
   state = "unblocked"
+}
+
+resource "aws_ec2_image_block_public_access" "share-ue1" {
+  provider = aws.aws-303467602807-ue1
+  state    = "unblocked"
+}
+
+resource "aws_ec2_image_block_public_access" "share-ue2" {
+  provider = aws.aws-303467602807-ue2
+  state    = "unblocked"
+}
+
+resource "aws_ec2_image_block_public_access" "share-uw2" {
+  provider = aws.aws-303467602807-uw2
+  state    = "unblocked"
 }
 
 # region specific resources
@@ -94,11 +131,10 @@ module "infrahouse-ubuntu-pro-uw-1" {
   providers = {
     aws = aws.aws-303467602807-uw1
   }
-  source          = "./modules/infrahouse-ubuntu-pro-regional"
-  environment     = local.environment
-  github_role_arn = module.infrahouse-ubuntu-pro-github.github_role_arn
-  subnet_id       = module.management.subnet_public_ids[0]
-  supported_codenames = [
-    "noble",
-  ]
+  source              = "./modules/infrahouse-ubuntu-pro-regional"
+  ami_regions         = local.ami_regions
+  environment         = local.environment
+  github_role_arn     = module.infrahouse-ubuntu-pro-github.github_role_arn
+  subnet_id           = module.management.subnet_public_ids[0]
+  supported_codenames = local.supported_codenames
 }
