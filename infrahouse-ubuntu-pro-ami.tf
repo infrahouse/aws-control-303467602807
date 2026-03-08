@@ -103,9 +103,24 @@ resource "aws_iam_role_policy_attachment" "infrahouse-ubuntu-pro-permissions" {
   role       = module.infrahouse-ubuntu-pro-github.github_role_name
 }
 
-# Prevent making AMIs publicly accessible in the region and account for which the provider is configured
+# Unblock public AMI sharing in all regions where AMIs are published
 resource "aws_ec2_image_block_public_access" "share" {
   state = "unblocked"
+}
+
+resource "aws_ec2_image_block_public_access" "share-ue1" {
+  provider = aws.aws-303467602807-ue1
+  state    = "unblocked"
+}
+
+resource "aws_ec2_image_block_public_access" "share-ue2" {
+  provider = aws.aws-303467602807-ue2
+  state    = "unblocked"
+}
+
+resource "aws_ec2_image_block_public_access" "share-uw2" {
+  provider = aws.aws-303467602807-uw2
+  state    = "unblocked"
 }
 
 # region specific resources
