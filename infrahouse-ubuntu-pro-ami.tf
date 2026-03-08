@@ -5,6 +5,9 @@ locals {
     "us-west-1",
     "us-west-2",
   ]
+  supported_codenames = [
+    "noble",
+  ]
 }
 # IAM role
 module "infrahouse-ubuntu-pro-github" {
@@ -128,12 +131,10 @@ module "infrahouse-ubuntu-pro-uw-1" {
   providers = {
     aws = aws.aws-303467602807-uw1
   }
-  source          = "./modules/infrahouse-ubuntu-pro-regional"
-  ami_regions     = local.ami_regions
-  environment     = local.environment
-  github_role_arn = module.infrahouse-ubuntu-pro-github.github_role_arn
-  subnet_id       = module.management.subnet_public_ids[0]
-  supported_codenames = [
-    "noble",
-  ]
+  source              = "./modules/infrahouse-ubuntu-pro-regional"
+  ami_regions         = local.ami_regions
+  environment         = local.environment
+  github_role_arn     = module.infrahouse-ubuntu-pro-github.github_role_arn
+  subnet_id           = module.management.subnet_public_ids[0]
+  supported_codenames = local.supported_codenames
 }
