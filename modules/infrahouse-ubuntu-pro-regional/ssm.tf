@@ -10,6 +10,17 @@ resource "aws_ssm_parameter" "infrahouse-ubuntu-pro" {
       ssh_private_key : tls_private_key.infrahouse-ubuntu-pro.private_key_openssh
       subnet_id : var.subnet_id
       security_group_id : aws_security_group.infrahouse-ubuntu-pro.id
+      "ami_regions" : tolist(
+        setsubtract(
+          [
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2"
+          ],
+          [data.aws_region.current.name]
+        )
+      )
     }
   )
 }
