@@ -21,14 +21,19 @@ resource "aws_ssm_parameter" "infrahouse-ubuntu-pro" {
 }
 
 resource "aws_ssm_parameter" "infrahouse-ubuntu-pro-latest-image" {
-  for_each    = toset(var.supported_codenames)
-  name        = "/infrahouse/ubuntu-pro/latest/${each.key}"
-  description = "The parameter to store the last known AMI for Ubuntu ${each.key}"
+  for_each = {
+    for pair in setproduct(var.ami_regions, var.supported_codenames) :
+    "${pair[0]}/${pair[1]}" => {
+      region   = pair[0]
+      codename = pair[1]
+    }
+  }
+  region      = each.value.region
+  name        = "/infrahouse/ubuntu-pro/latest/${each.value.codename}"
+  description = "The parameter to store the last known AMI for Ubuntu ${each.value.codename}"
   type        = "String"
   value       = "none"
   lifecycle {
-    ignore_changes = [
-      value,
-    ]
+    ignore_changes = [value]
   }
 }
