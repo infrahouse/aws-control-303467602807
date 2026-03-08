@@ -12,12 +12,7 @@ resource "aws_ssm_parameter" "infrahouse-ubuntu-pro" {
       security_group_id : aws_security_group.infrahouse-ubuntu-pro.id
       "ami_regions" : tolist(
         setsubtract(
-          [
-            "us-east-1",
-            "us-east-2",
-            "us-west-1",
-            "us-west-2"
-          ],
+          var.ami_regions,
           [data.aws_region.current.name]
         )
       )
