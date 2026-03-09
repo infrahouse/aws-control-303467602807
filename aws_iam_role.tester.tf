@@ -42,6 +42,7 @@ locals {
     registry-tester : "terraform-aws-registry"
     lambda-monitored-tester : "terraform-aws-lambda-monitored"
     pmm-ecs-tester : "terraform-aws-pmm-ecs"
+    openclaw-tester : "terraform-aws-openclaw"
     percona-server-tester : "terraform-aws-percona-server"
   }
 }
