@@ -45,6 +45,7 @@ locals {
     openclaw-tester : "terraform-aws-openclaw"
     org-governance-tester : "terraform-aws-org-governance"
     percona-server-tester : "terraform-aws-percona-server"
+    rds-tester : "terraform-aws-rds"
   }
 }
 
