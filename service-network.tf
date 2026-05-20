@@ -5,7 +5,7 @@ module "management" {
   service_name          = "management"
   vpc_cidr_block        = "10.0.0.0/22"
   environment           = local.environment
-  enable_vpc_flow_logs  = false
+  replication_region    = local.dr_region
   subnets = [
     {
       cidr                    = "10.0.0.0/24"
