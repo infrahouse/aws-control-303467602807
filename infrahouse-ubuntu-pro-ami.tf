@@ -94,6 +94,25 @@ data "aws_iam_policy_document" "infrahouse-ubuntu-pro-permissions" {
     ]
     resources = module.infrahouse-ubuntu-pro-uw-1.infrahouse-ubuntu-pro-latest-image-arns
   }
+  # State for the kernel-triggered rebuild: packer-build.py records the
+  # linux-image-aws candidate it last built from, so a new kernel in the archive
+  # triggers a rebuild even when Canonical has not republished the base AMI.
+  # See infrahouse/infrahouse-ubuntu-pro#24.
+  #
+  # A path prefix rather than an enumerated ARN because nothing declares this
+  # parameter -- set_last_kernel() creates it on first write, and the reader
+  # treats ParameterNotFound as "no baseline yet". Only the build region is
+  # granted: unlike /latest/, this state is never fanned out to copy regions.
+  statement {
+    effect = "Allow"
+    actions = [
+      "ssm:GetParameter",
+      "ssm:PutParameter",
+    ]
+    resources = [
+      "arn:aws:ssm:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:parameter/infrahouse/ubuntu-pro/kernel/*",
+    ]
+  }
 }
 
 resource "aws_iam_policy" "infrahouse-ubuntu-pro-permissions" {
